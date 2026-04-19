@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iron Man 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Iron Man 3 (2013)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/19/Iron_Man_3_poster.jpg/250px-Iron_Man_3_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>
+Tony Stark faces a powerful terrorist called the Mandarin while struggling with PTSD after the Avengers battle.
+</p>
+
+<h2>Plot</h2>
+<p>
+Tony Stark suffers anxiety attacks and builds multiple Iron Man suits. He investigates bombings linked to the Mandarin,
+only to discover the real villain is Aldrich Killian. Using his intelligence, Stark defeats Killian and destroys his suits,
+choosing a simpler life.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Shane Black</td></tr>
+<tr><th>Release Date</th><td>May 3, 2013</td></tr>
+<tr><th>Run Time</th><td>130 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$1.215 billion</td></tr>
+<tr><th>Cast</th><td>Robert Downey Jr., Gwyneth Paltrow, Ben Kingsley</td></tr>
+</table>
+
+<div class="rating">⭐ 7.1 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=Ke1Y3P9D0Bc" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

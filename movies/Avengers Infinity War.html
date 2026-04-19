@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Avengers: Infinity War</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Avengers: Infinity War (2018)</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVKXRFFc9BNtpnBRWifO2r1-wzFwKfNIGsg&s">
+
+<h2>Synopsis</h2>
+<p>The Avengers face Thanos, who seeks all Infinity Stones.</p>
+
+<h2>Plot</h2>
+<p>
+Thanos collects the Infinity Stones across the universe. The Avengers and Guardians try to stop him,
+but fail. Thanos snaps his fingers, wiping out half of all life.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Russo Brothers</td></tr>
+<tr><th>Release Date</th><td>April 27, 2018</td></tr>
+<tr><th>Run Time</th><td>149 minutes</td></tr>
+<tr><th>Budget</th><td>$325 million</td></tr>
+<tr><th>Box Office</th><td>$2.052 billion</td></tr>
+<tr><th>Cast</th><td>Robert Downey Jr., Chris Hemsworth, Josh Brolin</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 8.4 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=6ZfuNTqbHE8">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    document.getElementById("reviewText").value = "";
+
+    alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

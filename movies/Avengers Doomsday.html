@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Avengers Doomsday</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Avengers: Doomsday (2026)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Avengers_Doomsday_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>The Avengers face a massive multiversal threat.</p>
+
+<h2>Plot</h2>
+<p>
+The Avengers assemble once again to face a powerful villain
+threatening all universes.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>TBA</td></tr>
+<tr><th>Release Date</th><td>December 18, 2026</td></tr>
+<tr><th>Status</th><td>In Post-Production</td></tr>
+<tr><th>Run Time</th><td>TBA</td></tr>
+<tr><th>Budget</th><td>TBA</td></tr>
+<tr><th>Cast</th><td>TBA</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ N/A</div>
+
+<h2>Trailer</h2>
+<a href="#">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

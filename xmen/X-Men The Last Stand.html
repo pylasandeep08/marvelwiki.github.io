@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>X-Men The Last Stand</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>X-Men: The Last Stand (2006)</h1>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNaywgOax-76pZO4m3dIegdPYlJf6yvEAQbA&s">
+
+<h2>Synopsis</h2>
+<p>A cure for mutation creates conflict among mutants.</p>
+
+<h2>Plot</h2>
+<p>
+A cure for mutants causes division. Magneto leads resistance while Jean Grey returns as Phoenix.
+The X-Men stop her but at great cost.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Brett Ratner</td></tr>
+<tr><th>Release Date</th><td>May 26, 2006</td></tr>
+<tr><th>Run Time</th><td>104 minutes</td></tr>
+<tr><th>Budget</th><td>$210 million</td></tr>
+<tr><th>Box Office</th><td>$460 million</td></tr>
+<tr><th>Cast</th><td>Hugh Jackman, Halle Berry</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 6.6 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=7Whl0gJ_PoE">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

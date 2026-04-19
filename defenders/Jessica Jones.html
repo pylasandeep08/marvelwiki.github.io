@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jessica Jones</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>Jessica Jones</h1>
+<img src="https://m.media-amazon.com/images/M/MV5BMDhhY2VlMWItMjM3Yi00MDc1LTlmYjctNjMzNDIxZjc5NGEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>A private investigator with super strength solves dark cases.</p>
+
+<h2>Plot</h2>
+<p>
+Jessica Jones deals with trauma while running her detective agency.
+She faces Kilgrave, a villain who controls minds.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Release Date</th><td>2015–2019</td></tr>
+<tr><th>Seasons</th><td>3</td></tr>
+<tr><th>Platform</th><td>Netflix / Disney+</td></tr>
+<tr><th>Cast</th><td>Krysten Ritter</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.9 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=nWHUjuJ8zxE">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

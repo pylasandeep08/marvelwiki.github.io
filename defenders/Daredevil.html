@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Daredevil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>Daredevil</h1>
+<img src="https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>A blind lawyer fights crime as Daredevil.</p>
+
+<h2>Plot</h2>
+<p>
+Matt Murdock uses his heightened senses to protect Hell’s Kitchen.
+He battles crime and faces Wilson Fisk, also known as Kingpin.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Release Date</th><td>2015–2018</td></tr>
+<tr><th>Seasons</th><td>3</td></tr>
+<tr><th>Platform</th><td>Netflix / Disney+</td></tr>
+<tr><th>Cast</th><td>Charlie Cox</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 8.6 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=jAy6NJ_D5vU">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

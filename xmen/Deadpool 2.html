@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deadpool 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Deadpool 2 (2018)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BNGY3N2ZhYmMtYTlmYi00ZWIzLWJiZWMtMjgxMjljYTk3MDAwXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg">
+
+<h2>Synopsis</h2>
+<p>Deadpool forms a team to protect a young mutant.</p>
+
+<h2>Plot</h2>
+<p>
+Deadpool creates X-Force to save a boy from Cable, a time-traveling soldier.
+After many losses, Deadpool learns the value of family.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>David Leitch</td></tr>
+<tr><th>Release Date</th><td>May 18, 2018</td></tr>
+<tr><th>Run Time</th><td>119 minutes</td></tr>
+<tr><th>Budget</th><td>$110 million</td></tr>
+<tr><th>Box Office</th><td>$786 million</td></tr>
+<tr><th>Cast</th><td>Ryan Reynolds, Josh Brolin</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.7 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=D86RtevtfrA">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

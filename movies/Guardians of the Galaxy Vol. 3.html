@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guardians of the Galaxy Vol. 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Guardians of the Galaxy Vol. 3 (2023)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Guardians_of_the_Galaxy_Vol._3_poster.jpg/250px-Guardians_of_the_Galaxy_Vol._3_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>The Guardians protect Rocket’s past from a dangerous enemy.</p>
+
+<h2>Plot</h2>
+<p>
+The team faces the High Evolutionary to save Rocket. They succeed,
+but go their separate ways after the mission.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>James Gunn</td></tr>
+<tr><th>Release Date</th><td>May 5, 2023</td></tr>
+<tr><th>Run Time</th><td>150 minutes</td></tr>
+<tr><th>Budget</th><td>$250 million</td></tr>
+<tr><th>Box Office</th><td>$845 million</td></tr>
+<tr><th>Cast</th><td>Chris Pratt, Zoe Saldana</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.9 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=u3V5KDHRQvk">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

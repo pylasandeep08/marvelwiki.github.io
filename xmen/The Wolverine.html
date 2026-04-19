@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Wolverine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>The Wolverine (2013)</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs_ZCXbBsHTovzh5LohtnkzH1wRXmlyzOdAw&s">
+
+<h2>Synopsis</h2>
+<p>Logan travels to Japan and faces his past.</p>
+
+<h2>Plot</h2>
+<p>
+Wolverine goes to Japan where he faces enemies and his own immortality.
+He protects a woman tied to a powerful family.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>James Mangold</td></tr>
+<tr><th>Release Date</th><td>July 26, 2013</td></tr>
+<tr><th>Run Time</th><td>126 minutes</td></tr>
+<tr><th>Budget</th><td>$132 million</td></tr>
+<tr><th>Box Office</th><td>$414 million</td></tr>
+<tr><th>Cast</th><td>Hugh Jackman</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 6.7 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=th1NTVIhUQU">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

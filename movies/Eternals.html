@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Eternals</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Eternals (2021)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BZTBiZjI2M2UtZTNiNy00NmU4LWJiMjYtZjk4MDIzMzhlMjFlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>Immortal beings protect Earth from Deviants.</p>
+
+<h2>Plot</h2>
+<p>
+The Eternals reunite to stop the Emergence of a Celestial.
+They prevent Earth's destruction by stopping Tiamut.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Chloé Zhao</td></tr>
+<tr><th>Release Date</th><td>November 5, 2021</td></tr>
+<tr><th>Run Time</th><td>156 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$402 million</td></tr>
+<tr><th>Cast</th><td>Gemma Chan, Richard Madden</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 6.3 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=x_me3xsvDgk">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

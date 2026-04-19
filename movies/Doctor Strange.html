@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Doctor Strange</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Doctor Strange (2016)</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2EejgVX8x7rGyCDZkIFjxfjPXVY_zyyeSLw&s">
+
+<h2>Synopsis</h2>
+<p>A surgeon learns mystical arts after an accident.</p>
+
+<h2>Plot</h2>
+<p>
+Stephen Strange trains under the Ancient One and learns magic. He battles Kaecilius and Dormammu,
+using time manipulation to save Earth.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Scott Derrickson</td></tr>
+<tr><th>Release Date</th><td>November 4, 2016</td></tr>
+<tr><th>Run Time</th><td>115 minutes</td></tr>
+<tr><th>Budget</th><td>$165 million</td></tr>
+<tr><th>Box Office</th><td>$677.7 million</td></tr>
+<tr><th>Cast</th><td>Benedict Cumberbatch, Tilda Swinton</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.5 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=HSzx-zryEgM" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div><script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

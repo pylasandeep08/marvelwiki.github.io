@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Thor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Thor (2011)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BNjRhNGZjZjEtYTQzYS00OWUxLThjNGEtMTIwMTE2ZDFlZTZkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>
+Thor, the God of Thunder, is banished to Earth and stripped of his powers.
+He must learn humility to become worthy again.
+</p>
+
+<h2>Plot</h2>
+<p>
+Thor is cast out by Odin and lands on Earth. Meanwhile, Loki plots to take control of Asgard.
+Thor regains his power after proving his worth and defeats Loki’s plan, saving both Earth and Asgard.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Kenneth Branagh</td></tr>
+<tr><th>Release Date</th><td>May 6, 2011</td></tr>
+<tr><th>Run Time</th><td>115 minutes</td></tr>
+<tr><th>Budget</th><td>$150 million</td></tr>
+<tr><th>Box Office</th><td>$449.3 million</td></tr>
+<tr><th>Cast</th><td>Chris Hemsworth, Natalie Portman, Tom Hiddleston</td></tr>
+</table>
+
+<div class="rating">⭐ 7.0 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=JOddp-nlNvQ" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

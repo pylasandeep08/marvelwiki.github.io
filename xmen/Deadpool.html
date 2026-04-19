@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deadpool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Deadpool (2016)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BNzY3ZWU5NGQtOTViNC00ZWVmLTliNjAtNzViNzlkZWQ4YzQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>A former soldier becomes a wisecracking anti-hero.</p>
+
+<h2>Plot</h2>
+<p>
+Wade Wilson undergoes an experiment that gives him healing powers but disfigures him.
+He becomes Deadpool and hunts down the man who ruined his life.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Tim Miller</td></tr>
+<tr><th>Release Date</th><td>February 12, 2016</td></tr>
+<tr><th>Run Time</th><td>108 minutes</td></tr>
+<tr><th>Budget</th><td>$58 million</td></tr>
+<tr><th>Box Office</th><td>$782 million</td></tr>
+<tr><th>Cast</th><td>Ryan Reynolds</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 8.0 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=ONHBaC-pfsk">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

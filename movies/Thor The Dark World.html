@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Thor: The Dark World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Thor: The Dark World (2013)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Thor_The_Dark_World_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>
+Thor teams up with Loki to stop the Dark Elf Malekith from destroying the universe.
+</p>
+
+<h2>Plot</h2>
+<p>
+Malekith seeks the Aether to bring darkness to all realms. Thor joins forces with Loki to stop him.
+After a fierce battle, Thor defeats Malekith but loses Loki—though Loki secretly survives.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Alan Taylor</td></tr>
+<tr><th>Release Date</th><td>November 8, 2013</td></tr>
+<tr><th>Run Time</th><td>112 minutes</td></tr>
+<tr><th>Budget</th><td>$150 million</td></tr>
+<tr><th>Box Office</th><td>$644.8 million</td></tr>
+<tr><th>Cast</th><td>Chris Hemsworth, Tom Hiddleston, Natalie Portman</td></tr>
+</table>
+
+<div class="rating">⭐ 6.8 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=npvJ9FTgZbM" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

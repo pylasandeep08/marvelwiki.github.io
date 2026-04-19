@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>What If</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>What If...? (2021)</h1>
+<img src="https://m.media-amazon.com/images/M/MV5BYWFiOTcwNzItMTg5Mi00ZTU4LThkZWYtYWNmZWQ1ODE5ZTVmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>Alternate realities of Marvel events.</p>
+
+<h2>Plot</h2>
+<p>
+The Watcher explores alternate timelines where key MCU moments change,
+creating new heroes and unexpected outcomes.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Created By</th><td>A.C. Bradley</td></tr>
+<tr><th>Release Date</th><td>August 11, 2021</td></tr>
+<tr><th>Episodes</th><td>9</td></tr>
+<tr><th>Platform</th><td>Disney+</td></tr>
+<tr><th>Type</th><td>Animated</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.4 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=x9D0uUKJ5KI">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

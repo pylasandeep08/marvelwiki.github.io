@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wonder Man</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>Wonder Man (2026)</h1>
+<img src="https://m.media-amazon.com/images/M/MV5BMDk5YzQ3NjQtNzY3MC00NzM3LWE4NzYtZGRkNDQxYjdiZDkyXkEyXkFqcGc@._V1_.jpg">
+
+<h2>Synopsis</h2>
+<p>A struggling actor gains superpowers and enters the superhero world.</p>
+
+<h2>Plot</h2>
+<p>
+Simon Williams becomes Wonder Man after gaining ionic powers.
+He navigates fame, acting, and superhero responsibilities in Hollywood.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Release Date</th><td>January 27, 2026</td></tr>
+<tr><th>Status</th><td>Released</td></tr>
+<tr><th>Platform</th><td>Disney+</td></tr>
+<tr><th>Cast</th><td>Yahya Abdul-Mateen II</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ N/A</div>
+
+<h2>Trailer</h2>
+<a href="#">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    document.getElementById("reviewText").value = "";
+
+    alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

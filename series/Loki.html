@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loki</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Loki (Season 1 & 2)</h1>
+
+<img src="https://resizing.flixster.com/o1o8vBlAWaGVUudnCaTcwrrSwIQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvZTdhMTEzOTUtMTc1Yi00NzljLTk0YTgtNWFiYzJhMmQwMzE4LmpwZw==">
+
+<h2>Synopsis</h2>
+<p>Loki explores time, multiverse, and his true purpose across two seasons.</p>
+
+<h2>Plot</h2>
+<p>
+After escaping with the Tesseract, Loki is captured by the Time Variance Authority (TVA).
+He is forced to help track dangerous timeline variants, including Sylvie.
+
+In Season 1, Loki discovers the truth behind the Sacred Timeline and meets He Who Remains,
+the creator of the TVA. Sylvie kills him, breaking the timeline and unleashing the multiverse.
+
+In Season 2, Loki struggles with time slipping and works with Mobius and the TVA to fix
+the collapsing timelines. He learns to control time and ultimately sacrifices himself,
+becoming the guardian of all timelines, holding the multiverse together.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Created By</th><td>Michael Waldron</td></tr>
+<tr><th>Seasons</th><td>2</td></tr>
+<tr><th>Total Episodes</th><td>12</td></tr>
+<tr><th>Release Dates</th><td>2021 – 2023</td></tr>
+<tr><th>Platform</th><td>Disney+</td></tr>
+<tr><th>Genre</th><td>Action, Sci-Fi, Fantasy</td></tr>
+<tr><th>Cast</th><td>Tom Hiddleston, Owen Wilson, Sophia Di Martino</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 8.2 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=nW948Va-l10">▶ Watch Season 1 Trailer</a>
+<br><br>
+<a href="https://www.youtube.com/watch?v=dug56u8NN7g">▶ Watch Season 2 Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    document.getElementById("reviewText").value = "";
+
+    alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

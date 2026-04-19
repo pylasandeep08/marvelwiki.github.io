@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Luke Cage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>Luke Cage</h1>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnGSyVz1c6xKHjqEhWwP2RNt6JvsepGEZG5g&s">
+
+<h2>Synopsis</h2>
+<p>A man with super strength protects his neighborhood.</p>
+
+<h2>Plot</h2>
+<p>
+After a sabotaged experiment leaves him with superhuman strength and unbreakable skin,
+Luke Cage becomes a fugitive trying to rebuild his life in Harlem.
+However, he is forced to step out of the shadows and fight crime,
+protecting his community from powerful enemies like Cottonmouth and Mariah Dillard.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Release Date</th><td>2016–2018</td></tr>
+<tr><th>Seasons</th><td>2</td></tr>
+<tr><th>Platform</th><td>Netflix / Disney+</td></tr>
+<tr><th>Cast</th><td>Mike Colter</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.3 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=ORa4hPhGrpo">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

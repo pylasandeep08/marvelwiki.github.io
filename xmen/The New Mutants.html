@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The New Mutants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>The New Mutants (2020)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/TheNewMutantsPoster.jpeg/250px-TheNewMutantsPoster.jpeg">
+
+<h2>Synopsis</h2>
+<p>A group of young mutants face their fears in a facility.</p>
+
+<h2>Plot</h2>
+<p>
+Five young mutants are held in a secret facility where they confront their powers
+and traumatic pasts. They discover the truth and fight to escape.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Josh Boone</td></tr>
+<tr><th>Release Date</th><td>August 28, 2020</td></tr>
+<tr><th>Run Time</th><td>94 minutes</td></tr>
+<tr><th>Budget</th><td>$67 million</td></tr>
+<tr><th>Box Office</th><td>$49 million</td></tr>
+<tr><th>Cast</th><td>Anya Taylor-Joy, Maisie Williams</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 5.3 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=W_vJhUAOFpI">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

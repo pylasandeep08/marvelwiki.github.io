@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ant-Man and the Wasp Quantumania</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Ant-Man and the Wasp: Quantumania (2023)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BMThkYWY5ZjQtYjJlMS00MDFmLWFkYzEtODEzZjg5YWFmMGY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>Scott Lang explores the Quantum Realm and faces Kang.</p>
+
+<h2>Plot</h2>
+<p>
+Scott and his family are pulled into the Quantum Realm where they meet Kang the Conqueror.
+They battle Kang and escape, but his threat looms over the multiverse.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Peyton Reed</td></tr>
+<tr><th>Release Date</th><td>February 17, 2023</td></tr>
+<tr><th>Run Time</th><td>124 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$476 million</td></tr>
+<tr><th>Cast</th><td>Paul Rudd, Jonathan Majors</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 6.1 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=ZlNFpri-Y40">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

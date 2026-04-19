@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vision Quest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="details">
+
+<h1>Vision Quest (2026)</h1>
+<img src="https://i.redd.it/9w9wfpirbpeb1.jpg">
+
+<h2>Synopsis</h2>
+<p>Vision searches for his identity and memories.</p>
+
+<h2>Plot</h2>
+<p>
+White Vision tries to regain his memories and understand his past.
+He explores what it means to be human and his connection to Wanda.
+</p>
+
+<h2>Series Information</h2>
+<table class="info-table">
+<tr><th>Release Date</th><td>Late 2026</td></tr>
+<tr><th>Status</th><td>In Production</td></tr>
+<tr><th>Platform</th><td>Disney+</td></tr>
+<tr><th>Cast</th><td>Paul Bettany</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ N/A</div>
+
+<h2>Trailer</h2>
+<a href="#">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    document.getElementById("reviewText").value = "";
+
+    alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

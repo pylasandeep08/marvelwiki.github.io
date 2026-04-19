@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Captain America Brave New World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Captain America: Brave New World (2025)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg">
+
+<h2>Synopsis</h2>
+<p>Sam Wilson takes on global threats as Captain America.</p>
+
+<h2>Plot</h2>
+<p>
+Sam Wilson faces new political challenges and enemies
+while proving himself as the new Captain America.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Julius Onah</td></tr>
+<tr><th>Release Date</th><td>2025</td></tr>
+<tr><th>Run Time</th><td>TBA</td></tr>
+<tr><th>Budget</th><td>TBA</td></tr>
+<tr><th>Box Office</th><td>Upcoming</td></tr>
+<tr><th>Cast</th><td>Anthony Mackie</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ N/A</div>
+
+<h2>Trailer</h2>
+<a href="#">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

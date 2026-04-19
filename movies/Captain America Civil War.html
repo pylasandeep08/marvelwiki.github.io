@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Captain America: Civil War</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Captain America: Civil War (2016)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Captain_America_Civil_War_poster.jpg/250px-Captain_America_Civil_War_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>The Avengers split into two teams over government control.</p>
+
+<h2>Plot</h2>
+<p>
+After collateral damage incidents, the Sokovia Accords divide the Avengers. Iron Man supports regulation,
+while Captain America opposes it. This leads to a massive battle. The truth about Bucky killing Tony’s parents
+breaks the team apart.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Russo Brothers</td></tr>
+<tr><th>Release Date</th><td>May 6, 2016</td></tr>
+<tr><th>Run Time</th><td>147 minutes</td></tr>
+<tr><th>Budget</th><td>$250 million</td></tr>
+<tr><th>Box Office</th><td>$1.153 billion</td></tr>
+<tr><th>Cast</th><td>Chris Evans, Robert Downey Jr., Scarlett Johansson</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.8 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=dKrVegVI0Us" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div><script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

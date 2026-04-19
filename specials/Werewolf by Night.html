@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Werewolf by Night</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Werewolf by Night (2022)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BODUzMGFkYzgtYzhjNC00ZmFjLTg3ZTYtYWJkMWRjMzJmYTQ2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>A secret group of monster hunters competes for a powerful relic.</p>
+
+<h2>Plot</h2>
+<p>
+Following the death of a legendary monster hunter, a group gathers for a deadly hunt.
+Jack Russell hides his werewolf identity while protecting a captured creature.
+He transforms and escapes, embracing his true nature.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Michael Giacchino</td></tr>
+<tr><th>Release Date</th><td>October 7, 2022</td></tr>
+<tr><th>Run Time</th><td>53 minutes</td></tr>
+<tr><th>Budget</th><td>N/A</td></tr>
+<tr><th>Platform</th><td>Disney+</td></tr>
+<tr><th>Cast</th><td>Gael García Bernal</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.1 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=bLEFqhS5WmI">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

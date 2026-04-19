@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Avengers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>The Avengers (2012)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/The_Avengers_%282012_film%29_poster.jpg/250px-The_Avengers_%282012_film%29_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>
+Earth’s mightiest heroes unite to stop Loki and his alien army from conquering Earth.
+</p>
+
+<h2>Plot</h2>
+<p>
+Nick Fury assembles the Avengers team. After internal conflicts, they unite to stop Loki’s invasion.
+The team successfully saves New York and becomes Earth’s greatest defenders.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Joss Whedon</td></tr>
+<tr><th>Release Date</th><td>May 4, 2012</td></tr>
+<tr><th>Run Time</th><td>143 minutes</td></tr>
+<tr><th>Budget</th><td>$220 million</td></tr>
+<tr><th>Box Office</th><td>$1.519 billion</td></tr>
+<tr><th>Cast</th><td>Robert Downey Jr., Chris Evans, Chris Hemsworth, Mark Ruffalo</td></tr>
+</table>
+
+<div class="rating">⭐ 8.0 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=eOrNdBpGMv8" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+</body>
+</html>

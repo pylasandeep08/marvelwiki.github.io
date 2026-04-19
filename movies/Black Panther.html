@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Black Panther</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Black Panther (2018)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Black_Panther_%28film%29_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>T’Challa becomes king of Wakanda.</p>
+
+<h2>Plot</h2>
+<p>
+T’Challa faces Killmonger, who challenges his rule. After defeat and return,
+T’Challa wins and opens Wakanda to the world.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Ryan Coogler</td></tr>
+<tr><th>Release Date</th><td>February 16, 2018</td></tr>
+<tr><th>Run Time</th><td>134 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$1.347 billion</td></tr>
+<tr><th>Cast</th><td>Chadwick Boseman, Michael B. Jordan</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.3 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=xjDjIWPwcPU">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

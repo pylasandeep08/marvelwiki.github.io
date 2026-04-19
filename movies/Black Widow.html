@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Black Widow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Black Widow (2021)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BZTMyZTA0ZTItYjY3Yi00ODNjLWExYTgtYzgxZTk0NTg0Y2FlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+<h2>Synopsis</h2>
+<p>Natasha confronts her past and the Red Room.</p>
+
+<h2>Plot</h2>
+<p>
+Natasha Romanoff reunites with her old family to destroy the Red Room.
+She defeats Dreykov and frees the Widows.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Cate Shortland</td></tr>
+<tr><th>Release Date</th><td>July 9, 2021</td></tr>
+<tr><th>Run Time</th><td>134 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$379 million</td></tr>
+<tr><th>Cast</th><td>Scarlett Johansson, Florence Pugh</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 6.7 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=Fp9pNPdNwjI">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

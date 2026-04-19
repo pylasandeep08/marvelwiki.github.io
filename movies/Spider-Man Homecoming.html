@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spider-Man: Homecoming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Spider-Man: Homecoming (2017)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BODY2MTAzOTQ4M15BMl5BanBnXkFtZTgwNzg5MTE0MjI@._V1_.jpg">
+
+<h2>Synopsis</h2>
+<p>Peter Parker balances school life and hero duties.</p>
+
+<h2>Plot</h2>
+<p>
+Peter faces Vulture, a weapons dealer using alien tech. With guidance from Tony Stark,
+he learns responsibility and defeats Vulture.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Jon Watts</td></tr>
+<tr><th>Release Date</th><td>July 7, 2017</td></tr>
+<tr><th>Run Time</th><td>133 minutes</td></tr>
+<tr><th>Budget</th><td>$175 million</td></tr>
+<tr><th>Box Office</th><td>$880.2 million</td></tr>
+<tr><th>Cast</th><td>Tom Holland, Michael Keaton</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 7.4 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=rk-dF1lIbIg" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div><script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

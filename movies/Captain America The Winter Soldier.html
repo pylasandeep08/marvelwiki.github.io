@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Captain America: The Winter Soldier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Captain America: The Winter Soldier (2014)</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Captain_America_The_Winter_Soldier_poster.jpg">
+
+<h2>Synopsis</h2>
+<p>
+Captain America faces a deadly assassin known as the Winter Soldier while uncovering a conspiracy within S.H.I.E.L.D.
+</p>
+
+<h2>Plot</h2>
+<p>
+Steve Rogers works with Black Widow and Falcon to uncover Hydra’s infiltration of S.H.I.E.L.D.
+The Winter Soldier is revealed to be Bucky Barnes, Steve’s friend. Steve saves Bucky and destroys Hydra’s plan.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Russo Brothers</td></tr>
+<tr><th>Release Date</th><td>April 4, 2014</td></tr>
+<tr><th>Run Time</th><td>136 minutes</td></tr>
+<tr><th>Budget</th><td>$170 million</td></tr>
+<tr><th>Box Office</th><td>$714.4 million</td></tr>
+<tr><th>Cast</th><td>Chris Evans, Scarlett Johansson, Sebastian Stan</td></tr>
+</table>
+
+<div class="rating">⭐ 7.7 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=7SlILk2WMTI" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

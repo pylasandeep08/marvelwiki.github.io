@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Marvels</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>The Marvels (2023)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BYzczOWM4MzItMWMyOS00ZDczLWIxMzctNzBmYTgzOTI1MzI3XkEyXkFqcGc@._V1_.jpg">
+
+<h2>Synopsis</h2>
+<p>Three heroes swap places whenever they use their powers.</p>
+
+<h2>Plot</h2>
+<p>
+Captain Marvel, Ms. Marvel, and Monica Rambeau team up
+to stop a Kree threat and restore balance.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Nia DaCosta</td></tr>
+<tr><th>Release Date</th><td>November 10, 2023</td></tr>
+<tr><th>Run Time</th><td>105 minutes</td></tr>
+<tr><th>Budget</th><td>$220 million</td></tr>
+<tr><th>Box Office</th><td>$206 million</td></tr>
+<tr><th>Cast</th><td>Brie Larson, Iman Vellani</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 5.6 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=wS_qbDztgVY">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<div id="reviews"></div>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie = document.title;
+function addReview(){
+let user = localStorage.getItem("user");
+if(!user){ alert("Please login first!"); return; }
+let text = document.getElementById("reviewText").value;
+if(text===""){ alert("Please write a review!"); return; }
+let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+reviews.push(user + ": " + text);
+localStorage.setItem(movie, JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

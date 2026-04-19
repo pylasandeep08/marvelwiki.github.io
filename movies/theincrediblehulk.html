@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Incredible Hulk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>The Incredible Hulk (2008)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1_.jpg">
+
+<p>
+Scientist Bruce Banner transforms into a powerful green monster whenever he gets angry.
+While on the run, he searches for a cure but must face the military and a powerful enemy, the Abomination.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Louis Leterrier</td></tr>
+<tr><th>Release Date</th><td>June 13, 2008</td></tr>
+<tr><th>Run Time</th><td>112 minutes</td></tr>
+<tr><th>Budget</th><td>$150 million</td></tr>
+<tr><th>Box Office</th><td>$264.8 million</td></tr>
+<tr><th>Cast</th><td>Edward Norton, Liv Tyler, Tim Roth</td></tr>
+</table>
+
+<div class="rating">⭐ 6.6 / 10</div>
+
+<h2>Synopsis</h2>
+<p>
+Scientist Bruce Banner is exposed to gamma radiation, turning him into the Hulk whenever he becomes angry.
+While hiding from the military, he searches for a cure but must face a dangerous enemy known as the Abomination.
+</p>
+
+<h2>Plot</h2>
+<p>
+Bruce Banner lives in hiding while searching for a cure to his condition. General Ross relentlessly hunts him.
+Meanwhile, soldier Emil Blonsky volunteers for an experiment that turns him into the powerful Abomination.
+Banner transforms into Hulk and battles Blonsky in a destructive final fight, eventually defeating him.
+</p>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=xbqNb2PFKKA" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iron Man 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Iron Man 2 (2010)</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwjQmxATIfVXXmeXJ-RqJqOOIf6IjCWG8zw&s">
+
+<p>
+Tony Stark faces pressure from the government to share his technology while battling a new enemy, Whiplash.
+He must also deal with his declining health due to the arc reactor.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Jon Favreau</td></tr>
+<tr><th>Release Date</th><td>May 7, 2010</td></tr>
+<tr><th>Run Time</th><td>124 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$623.9 million</td></tr>
+<tr><th>Cast</th><td>Robert Downey Jr., Scarlett Johansson, Mickey Rourke</td></tr>
+</table>
+
+<div class="rating">⭐ 6.9 / 10</div>
+
+<h2>Synopsis</h2>
+<p>
+Tony Stark faces pressure from the government and new enemies after revealing his identity as Iron Man.
+He must overcome personal struggles while protecting his technology.
+</p>
+
+<h2>Plot</h2>
+<p>
+Tony Stark deals with his declining health due to the arc reactor while facing Ivan Vanko, who becomes Whiplash.
+With the help of War Machine and Black Widow, Stark defeats Whiplash and secures his legacy as Iron Man.
+</p>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=BoohRoVA9WQ" target="_blank">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

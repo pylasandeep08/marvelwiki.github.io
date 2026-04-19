@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iron Man</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Iron Man (2008)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg">
+
+<p>
+Iron Man is a 2008 superhero film that marks the beginning of the Marvel Cinematic Universe.
+It follows Tony Stark, a billionaire industrialist and genius inventor who is kidnapped by terrorists.
+While in captivity, he builds a powerful armored suit to escape. After returning home, he upgrades the suit
+and becomes the superhero Iron Man, dedicating his life to protecting the world.
+</p>
+
+<h2>Movie Information</h2>
+
+<table class="info-table">
+<tr><th>Director</th><td>Jon Favreau</td></tr>
+<tr><th>Producer</th><td>Kevin Feige</td></tr>
+<tr><th>Release Date</th><td>May 2, 2008</td></tr>
+<tr><th>Run Time</th><td>126 minutes</td></tr>
+<tr><th>Budget</th><td>$140 million</td></tr>
+<tr><th>Box Office</th><td>$585.8 million</td></tr>
+<tr><th>Language</th><td>English</td></tr>
+<tr><th>Genre</th><td>Action, Sci-Fi</td></tr>
+<tr><th>Cast</th>
+<td>
+Robert Downey Jr.,<br>
+Gwyneth Paltrow,<br>
+Jeff Bridges,<br>
+Terrence Howard
+</td>
+</tr>
+</table>
+
+<h2>Rating</h2>
+
+<div class="rating">
+    ⭐⭐⭐⭐⭐ 8.0 / 10
+</div>
+
+<h2>Synopsis</h2>
+<p>
+2008's <b>Iron Man</b> tells the story of <span class="highlight">Tony Stark</span>, 
+a billionaire industrialist and genius inventor who is kidnapped by terrorists. 
+Instead of building weapons, he creates a <span class="highlight">high-tech armored suit</span> 
+to escape. Returning home, Stark refines his suit and becomes the hero 
+<span class="highlight">Iron Man</span>.
+</p>
+
+<h2>Plot</h2>
+
+<div class="plot">
+
+<p>
+Playboy and industrial genius <span class="highlight">Tony Stark</span>, CEO of 
+<span class="highlight">Stark Industries</span>, travels to Afghanistan to demonstrate his new missile. 
+However, he is captured by terrorists known as the <span class="highlight">Ten Rings</span>.
+While in captivity, Stark builds a mini arc reactor and an armored suit to escape. 
+After returning, he improves the design and chooses to protect the world as 
+<span class="highlight">Iron Man</span>.
+</p>
+
+</div>
+
+<h2>Trailer</h2>
+
+<a href="https://www.youtube.com/watch?v=8ugaeA-nMTc" target="_blank">
+    ▶ Watch Trailer on YouTube
+</a>
+<br><br>
+
+<h2>Reviews</h2>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+<br>
+<button onclick="addReview()">Submit</button>
+
+<div id="reviews"></div>
+
+<button onclick="history.back()">⬅ Back</button>
+
+</div>
+
+<script>
+let movie = document.title;
+
+function addReview() {
+    let user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+
+    let text = document.getElementById("reviewText").value;
+
+    if (text === "") {
+        alert("Please write a review!");
+        return;
+    }
+
+    // Save review
+    let reviews = JSON.parse(localStorage.getItem(movie)) || [];
+    reviews.push(user + ": " + text);
+    localStorage.setItem(movie, JSON.stringify(reviews));
+
+    // Clear input
+    document.getElementById("reviewText").value = "";
+
+    // SHOW SUCCESS POPUP
+    alert("✅ Review submitted successfully!");
+}
+</script>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>

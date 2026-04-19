@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dark Phoenix</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="details">
+
+<h1>Dark Phoenix (2019)</h1>
+
+<img src="https://m.media-amazon.com/images/M/MV5BZjcwMDIyNjctMDVmNS00MzkyLTgxMDMtNTFmNTk0NDkyNzdjXkEyXkFqcGc@._V1_.jpg">
+
+<h2>Synopsis</h2>
+<p>Jean Grey becomes uncontrollable after gaining cosmic power.</p>
+
+<h2>Plot</h2>
+<p>
+Jean Grey develops immense powers and becomes unstable.
+The X-Men must decide whether to save her or stop her.
+</p>
+
+<h2>Movie Information</h2>
+<table class="info-table">
+<tr><th>Director</th><td>Simon Kinberg</td></tr>
+<tr><th>Release Date</th><td>June 7, 2019</td></tr>
+<tr><th>Run Time</th><td>113 minutes</td></tr>
+<tr><th>Budget</th><td>$200 million</td></tr>
+<tr><th>Box Office</th><td>$252 million</td></tr>
+<tr><th>Cast</th><td>Sophie Turner, James McAvoy</td></tr>
+</table>
+
+<h2>IMDb Rating</h2>
+<div class="rating">⭐ 5.7 / 10</div>
+
+<h2>Trailer</h2>
+<a href="https://www.youtube.com/watch?v=azvR__GRQic">▶ Watch Trailer</a>
+
+<h2>Reviews</h2>
+<textarea id="reviewText"></textarea><br>
+<button onclick="addReview()">Submit</button>
+<button onclick="history.back()">⬅ Back</button>
+
+<script>
+let movie=document.title;
+function addReview(){
+let user=localStorage.getItem("user");
+if(!user){alert("Please login first!");return;}
+let text=document.getElementById("reviewText").value;
+if(text===""){alert("Please write a review!");return;}
+let reviews=JSON.parse(localStorage.getItem(movie))||[];
+reviews.push(user+": "+text);
+localStorage.setItem(movie,JSON.stringify(reviews));
+document.getElementById("reviewText").value="";
+alert("✅ Review submitted successfully!");
+}
+</script>
+
+</div>
+<footer class="footer">
+    <p>© 2026 Marvel Universe</p>
+    <p>Created by sandeep</p>
+</footer>
+
+</body>
+</html>
