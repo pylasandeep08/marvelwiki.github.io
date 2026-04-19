@@ -181,3 +181,57 @@ function loginUser() {
 
     window.location = "index.html";
 }
+/* =========================
+   🔐 SIGNUP FUNCTION
+========================= */
+function signup() {
+    let user = document.getElementById("signupUser").value;
+    let pass = document.getElementById("signupPass").value;
+
+    if (user === "" || pass === "") {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    // get users
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // check if already exists
+    let exists = users.find(u => u.username === user);
+
+    if (exists) {
+        alert("User already exists!");
+        return;
+    }
+
+    // save user
+    users.push({ username: user, password: pass });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Signup successful! Now login.");
+}
+
+
+
+/* =========================
+   🔐 LOGIN FUNCTION
+========================= */
+function login() {
+    let user = document.getElementById("loginUser").value;
+    let pass = document.getElementById("loginPass").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let validUser = users.find(u => u.username === user && u.password === pass);
+
+    if (validUser) {
+        localStorage.setItem("user", user);
+        alert("Login successful!");
+
+        // REDIRECT
+        window.location.href = "index.html";
+
+    } else {
+        alert("Invalid username or password!");
+    }
+}
