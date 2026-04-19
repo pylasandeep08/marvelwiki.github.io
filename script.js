@@ -218,20 +218,19 @@ function signup() {
 ========================= */
 function login() {
     let user = document.getElementById("loginUser").value;
-    let pass = document.getElementById("loginPass").value;
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    if (user.trim() === "") {
+        alert("Enter username");
+        return;
+    }
 
-    let validUser = users.find(u => u.username === user && u.password === pass);
+    // Save username
+    localStorage.setItem("user", user);
 
-    if (validUser) {
-        localStorage.setItem("user", user);
-        alert("Login successful!");
+    alert("Login successful!");
 
-        // REDIRECT
-        window.location.href = "index.html";
-
-    } else {
-        alert("Invalid username or password!");
+    // FORCE REDIRECT
+    window.location.href = "index.html";
+}
     }
 }
